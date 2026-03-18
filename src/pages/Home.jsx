@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroCanvas from '../components/HeroCanvas'
 
@@ -15,6 +15,85 @@ function useFadeUp() {
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el))
     return () => obs.disconnect()
   }, [])
+}
+
+function NewsletterCard({ title, subtitle, placeholder, buttonText, smallText, endpoint }) {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setStatus('submitting')
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setEmail('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return (
+    <div className="nl-card fade-up">
+      <h3 className="nl-title">{title}</h3>
+      <p className="nl-subtitle">{subtitle}</p>
+      {status === 'success' ? (
+        <p className="nl-success">Tack! Du är anmäld 🎉</p>
+      ) : (
+        <form className="nl-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            required
+            placeholder={placeholder}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="nl-input"
+            disabled={status === 'submitting'}
+          />
+          <button type="submit" className="nl-btn" disabled={status === 'submitting'}>
+            {status === 'submitting' ? 'Skickar...' : buttonText}
+          </button>
+        </form>
+      )}
+      {status === 'error' && (
+        <p className="nl-error">Något gick fel. Försök igen.</p>
+      )}
+      <p className="nl-small">{smallText}</p>
+    </div>
+  )
+}
+
+function NewsletterSection() {
+  return (
+    <section className="nl-section">
+      <div className="nl-inner">
+        <NewsletterCard
+          title="Håll dig uppdaterad"
+          subtitle="Få insikter om AI-automatisering, case studies och tips direkt i din inkorg."
+          placeholder="din@email.se"
+          buttonText="Prenumerera"
+          smallText="Max 2 gånger per månad. Avprenumerera när som helst."
+          endpoint="https://formspree.io/f/newsletter-aikollegorna"
+        />
+        <NewsletterCard
+          title="Veckans AI-nyheter"
+          subtitle="De viktigaste AI-nyheterna samlade varje vecka — kurerat specifikt för svenska företagare."
+          placeholder="din@email.se"
+          buttonText="Få AI-nyheter"
+          smallText="Varje måndag morgon. Ingen spam."
+          endpoint="https://formspree.io/f/ainyheter-aikollegorna"
+        />
+      </div>
+    </section>
+  )
 }
 
 export default function Home() {
@@ -258,6 +337,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* NEWSLETTER */}
+      <NewsletterSection />
 
       {/* CTA */}
       <div className="cta-section">

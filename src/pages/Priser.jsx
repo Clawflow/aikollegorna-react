@@ -23,6 +23,10 @@ const sf = { fontFamily: 'var(--serif)' }
 
 export default function Priser() {
   useFadeUp()
+  useEffect(() => {
+    document.title = 'Priser — Enkelt & transparent | AI kollegorna'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Starter från 4 900 kr/mån. Growth 7 900 kr/mån. Fast pris, inga dolda kostnader. Setup 2 900 kr engång. AI-medarbetare på Mac Mini.')
+  }, [])
   const [open, setOpen] = useState(null)
 
   return (

@@ -15,6 +15,10 @@ const s = { fontFamily: 'var(--serif)' }
 
 export default function OmOss() {
   useFadeUp()
+  useEffect(() => {
+    document.title = 'Om oss — AI för alla svenska företag | AI kollegorna'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Vi tror på AI för alla — inte bara storbolagen. Grundat 2026 med målet att göra AI-medarbetare tillgängliga för varje svenskt B2B-företag.')
+  }, [])
   return (
     <>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '120px 48px 60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>

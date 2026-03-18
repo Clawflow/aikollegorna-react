@@ -40,6 +40,10 @@ const services = [
 
 export default function Tjanster() {
   useFadeUp()
+  useEffect(() => {
+    document.title = 'Tjänster — Säljaren, Marknadsassistenten & Supportagenten | AI kollegorna'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Tre AI-medarbetare: Säljaren, Marknadsassistenten och Supportagenten. Konfigurerad på en Mac Mini på ert kontor. Spara upp till 540 000 kr/år.')
+  }, [])
   return (
     <>
       <div className="page-hero" style={{ paddingTop: 120, paddingBottom: 60 }}>

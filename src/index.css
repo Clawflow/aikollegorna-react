@@ -265,4 +265,566 @@ footer.site-footer { background: var(--ink); padding: 80px 48px 40px; }
 }
 @media (max-width: 480px) {
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .kontakt-layout { padding: 100px 16px 60px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NEWSLETTER SECTION V2 — Mörk gradient + Glassmorphism
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Sektion: mörk gradient-bakgrund ── */
+.nl2-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  background-size: 200% 200%;
+  animation: nl2-gradient-shift 8s ease-in-out infinite;
+  padding: 100px 48px;
+}
+
+@keyframes nl2-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Animerade bakgrunds-orber ── */
+.nl2-bg-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nl2-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: nl2-float 12s ease-in-out infinite;
+}
+
+.nl2-orb-1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+  top: -10%; left: -5%;
+  animation-delay: 0s;
+}
+.nl2-orb-2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 70%);
+  bottom: -10%; right: -5%;
+  animation-delay: -4s;
+}
+.nl2-orb-3 {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -8s;
+}
+
+@keyframes nl2-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(30px, -20px) scale(1.05); }
+  50%      { transform: translate(-20px, 15px) scale(0.95); }
+  75%      { transform: translate(15px, 25px) scale(1.02); }
+}
+
+/* ── Container ── */
+.nl2-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.nl2-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nl2-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(165, 180, 252, 0.6);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nl2-section-label::before,
+.nl2-section-label::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: rgba(165, 180, 252, 0.3);
+}
+
+.nl2-section-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.nl2-section-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, #a78bfa, #818cf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nl2-section-subtitle {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Social proof counter ── */
+.nl2-social-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 10px 20px 10px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+}
+
+.nl2-avatars {
+  display: flex;
+  margin-right: -4px;
+}
+
+.nl2-avatar-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: -8px;
+  border: 2px solid rgba(15, 23, 42, 0.8);
+  position: relative;
+}
+
+.nl2-avatar-dot:last-child {
+  margin-right: 0;
+}
+
+.nl2-proof-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nl2-proof-text strong {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Kort-grid ── */
+.nl2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* ── Glassmorphism-kort ── */
+.nl2-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.4s ease;
+}
+
+.nl2-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+              0 0 40px rgba(99, 102, 241, 0.08);
+}
+
+/* ── Kort: ikon ── */
+.nl2-card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: nl2-icon-bob 3s ease-in-out infinite;
+}
+
+@keyframes nl2-icon-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* ── Kort: titel ── */
+.nl2-card-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+/* ── Kort: subtitle ── */
+.nl2-card-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* ── Kort: feature-lista ── */
+.nl2-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nl2-card-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nl2-feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa, #6366f1);
+  flex-shrink: 0;
+}
+
+/* ── Formulär ── */
+.nl2-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nl2-input-wrap {
+  position: relative;
+}
+
+.nl2-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 14px 40px 14px 16px;
+  font-size: 14px;
+  font-family: var(--sans);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.nl2-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.nl2-input:focus {
+  border-color: rgba(129, 140, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nl2-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nl2-input-error {
+  border-color: rgba(239, 68, 68, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+.nl2-input-valid {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* ── Validerings-ikon i input ── */
+.nl2-input-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 700;
+  pointer-events: none;
+  animation: nl2-icon-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nl2-input-icon.valid { color: #22c55e; }
+.nl2-input-icon.invalid { color: #ef4444; }
+
+@keyframes nl2-icon-pop {
+  from { transform: translateY(-50%) scale(0); opacity: 0; }
+  to   { transform: translateY(-50%) scale(1); opacity: 1; }
+}
+
+/* ── Felmeddelande ── */
+.nl2-error-msg {
+  font-size: 12px;
+  color: #f87171;
+  margin: -4px 0 0 4px;
+  font-weight: 500;
+  animation: nl2-shake 0.4s ease;
+}
+
+@keyframes nl2-shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-4px); }
+  40%      { transform: translateX(4px); }
+  60%      { transform: translateX(-3px); }
+  80%      { transform: translateX(2px); }
+}
+
+/* ── Submit-knapp ── */
+.nl2-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #7c3aed, #6366f1, #4f46e5);
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-position 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.nl2-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  background-position: 100% 50%;
+}
+
+.nl2-submit-btn:active {
+  transform: translateY(0);
+}
+
+.nl2-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.nl2-btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ── Loading Spinner ── */
+.nl2-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nl2-spinner-ring {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: nl2-spin 0.7s linear infinite;
+}
+
+@keyframes nl2-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Retry-knapp ── */
+.nl2-retry-btn {
+  background: none;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #f87171;
+  cursor: pointer;
+  margin-top: 8px;
+  font-family: var(--sans);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nl2-retry-btn:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+/* ── Liten text under formulär ── */
+.nl2-small-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 14px;
+}
+
+/* ── Success-state ── */
+.nl2-success-state {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.nl2-success-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.nl2-success-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── Animated Checkmark SVG ── */
+.nl2-checkmark-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nl2-checkmark-svg {
+  width: 64px;
+  height: 64px;
+}
+
+.nl2-checkmark-circle {
+  stroke: #22c55e;
+  stroke-width: 2;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: nl2-circle-draw 0.6s ease-out forwards;
+}
+
+.nl2-checkmark-check {
+  stroke: #22c55e;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: nl2-check-draw 0.4s 0.4s ease-out forwards;
+}
+
+@keyframes nl2-circle-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes nl2-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   KONTAKT-SIDA — Layout & formulär-tillägg
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.kontakt-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Kontakt loading spinner */
+.kontakt-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: nl2-spin 0.7s linear infinite;
+}
+
+/* Kontakt success-animationer */
+@keyframes kontakt-circle {
+  from { stroke-dashoffset: 157; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes kontakt-check {
+  from { stroke-dashoffset: 48; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.kontakt-success-check svg circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: kontakt-circle 0.6s ease-out forwards;
+}
+
+.kontakt-success-check svg path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: kontakt-check 0.4s 0.4s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NEWSLETTER V2 — RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .nl2-section {
+    padding: 60px 24px;
+  }
+  .nl2-grid {
+    grid-template-columns: 1fr;
+  }
+  .nl2-section-title {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+  .kontakt-layout {
+    grid-template-columns: 1fr;
+    padding: 100px 24px 60px;
+    gap: 48px;
+  }
 }

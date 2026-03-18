@@ -1,219 +1,271 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import HeroCanvas from '../components/HeroCanvas'
 
-const stats = [
-  { value: '500 000 kr', label: 'Sparade lönekostnader per år' },
-  { value: '2 veckor', label: 'Till fullt driftsatt' },
-  { value: '24/7', label: 'Alltid tillgänglig' },
-]
-
-const features = [
-  {
-    icon: '🤖',
-    title: 'AI-medarbetare',
-    desc: 'En dedikerad AI-agent som hanterar e-post, offerter, CRM och kundkommunikation — precis som en anställd, fast bättre.',
-  },
-  {
-    icon: '⚡',
-    title: 'Automation',
-    desc: 'Automatisera repetitiva arbetsflöden. Från lead-hantering till fakturering — AI gör det åt dig.',
-  },
-  {
-    icon: '🔗',
-    title: 'Integration',
-    desc: 'Kopplar ihop dina befintliga system: CRM, e-post, kalender, bokföring. Allt pratar med varandra.',
-  },
-]
-
-const steps = [
-  { num: '01', title: 'Gratis audit', desc: 'Vi kartlägger dina processer och identifierar var AI gör störst nytta.' },
-  { num: '02', title: 'Setup & anpassning', desc: 'Vi installerar och konfigurerar din AI-agent på plats hos dig.' },
-  { num: '03', title: 'Driftsatt', desc: 'Inom 2 veckor är din AI-medarbetare igång och jobbar för dig.' },
-]
-
-const plans = [
-  {
-    name: 'Starter',
-    price: '4 900',
-    desc: 'Perfekt för att komma igång',
-    features: ['1 AI-agent', '2–3 integrationer', 'E-postsupport', '6 månaders bindning'],
-    highlight: false,
-  },
-  {
-    name: 'Growth',
-    price: '7 900',
-    desc: 'För dig som vill skala',
-    features: ['Fler integrationer', 'Prioritetssupport', 'Månadsgenomgång', 'Utökad automation'],
-    highlight: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Offert',
-    desc: 'Skräddarsytt för ditt företag',
-    features: ['Obegränsat antal agenter', 'Dedikerad support', 'SLA-garanti', 'Custom integrationer'],
-    highlight: false,
-  },
-]
+function useFadeUp() {
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in')
+          obs.unobserve(e.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+}
 
 export default function Home() {
+  useFadeUp()
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-indigo-50 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 text-violet-700 text-sm font-medium mb-8">
-            <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
-            Ny generation AI-medarbetare
+      {/* HERO */}
+      <section className="hero-dark">
+        <div className="hero-landscape-bg" />
+        <video id="hero-video" autoPlay muted loop playsInline>
+          <source src="/hero-aurora.mp4" type="video/mp4" />
+        </video>
+        <HeroCanvas />
+        <div className="hero-overlay" />
+        <div id="hero-sentinel" style={{ position: 'absolute', top: 0, height: '100%', width: '1px', pointerEvents: 'none' }} />
+        <div className="hero-scroll">
+          <span>Scrolla</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+        <div className="hero-inner">
+          <div>
+            <div className="hero-tag">En Mac Mini. Din nya bästa anställda.</div>
+            <h1 className="hero-h1">Din AI-medarbetare<br />bor på <em>ditt kontor.</em></h1>
+            <p className="hero-sub">Vi installerar en Mac Mini hos er — färdigkonfigurerad med AI som sköter sälj, marknad och support. Den sitter på ert skrivbord och jobbar dygnet runt, utan sjukfrånvaro eller övertid.</p>
+            <div className="hero-actions">
+              <Link to="/kontakt" className="btn-light-solid">Boka ett samtal</Link>
+              <Link to="/tjanster" className="btn-text-light">Se hur det fungerar →</Link>
+            </div>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0f172a] leading-tight tracking-tight">
-            Din smartaste{' '}
-            <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
-              medarbetare
-            </span>
-          </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-xl text-slate-500 leading-relaxed">
-            AI-agenter som automatiserar din verksamhet — sover aldrig, sjuknar aldrig, förhandlar aldrig om lön.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/kontakt"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-full bg-gradient-to-r from-violet-600 to-indigo-500 hover:shadow-xl hover:shadow-violet-200 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Boka gratis demo
-            </Link>
-            <Link
-              to="/tjanster"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-700 rounded-full border border-slate-200 hover:border-violet-300 hover:text-violet-700 transition-all duration-200"
-            >
-              Se hur det fungerar →
-            </Link>
+          <div>
+            <div className="stat-block fade-up">
+              <div className="stat-num">On-<br />site</div>
+              <div className="stat-text">
+                <h3>Sitter på ert kontor</h3>
+                <p>Mac Mini:n installeras hos er. Er data lämnar aldrig kontoret — fullständigt GDPR-säkert, alltid under er kontroll.</p>
+              </div>
+            </div>
+            <div className="stat-block accent fade-up" style={{ transitionDelay: '.1s' }}>
+              <div className="stat-num amber">24/7</div>
+              <div className="stat-text">
+                <h3>Jobbar medan ni sover</h3>
+                <p>Sover aldrig. Sjuknar aldrig. Förhandlar aldrig om lön. Och kostar 90% mindre än en heltidsanställd.</p>
+              </div>
+            </div>
+            <div className="stat-block fade-up" style={{ transitionDelay: '.2s' }}>
+              <div className="stat-num">2v</div>
+              <div className="stat-text">
+                <h3>Installerad och igång</h3>
+                <p>Vi levererar hårdvaran, konfigurerar AI:n och integrerar mot era system. Klar på 14 dagar.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-[#0f172a] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className="text-4xl font-extrabold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm text-gray-400">{s.label}</div>
-              </div>
-            ))}
-          </div>
+      {/* TICKER */}
+      <div className="ticker">
+        <div className="ticker-inner">
+          {['GDPR-KOMPATIBEL','ON-PREMISE','SÄKER DRIFT','CRM-INTEGRATION','SLACK','E-POST','ALLTID ONLINE','ALDRIG SJUK','SVENSKA FÖRETAG'].flatMap((t, i) => [
+            <span key={t+i}>{t}</span>, <em key={'dot'+t+i}>·</em>
+          ])}
+          {['GDPR-KOMPATIBEL','ON-PREMISE','SÄKER DRIFT','CRM-INTEGRATION','SLACK','E-POST','ALLTID ONLINE','ALDRIG SJUK','SVENSKA FÖRETAG'].flatMap((t, i) => [
+            <span key={t+'b'+i}>{t}</span>, <em key={'dotb'+t+i}>·</em>
+          ])}
         </div>
-      </section>
+      </div>
 
-      {/* Vad vi gör */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#0f172a]">Vad vi gör</h2>
-            <p className="mt-4 text-lg text-slate-500 max-w-xl mx-auto">
-              Vi installerar AI-medarbetare direkt i ditt företag — on-prem, säkert, och klart på 2 veckor.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((f) => (
-              <div key={f.title} className="p-8 rounded-2xl border border-slate-100 hover:border-violet-200 hover:shadow-lg hover:shadow-violet-50 transition-all duration-200">
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-xl font-bold text-[#0f172a] mb-2">{f.title}</h3>
-                <p className="text-slate-500 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="rule" />
 
-      {/* Hur det fungerar */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#0f172a]">Hur det fungerar</h2>
-            <p className="mt-4 text-lg text-slate-500">Från första möte till driftsatt AI-medarbetare.</p>
+      {/* WORKERS */}
+      <div className="section">
+        <div className="workers-intro">
+          <div>
+            <div className="section-label">En Mac Mini. Tre roller.</div>
+            <h2 className="section-h fade-up">Välj vilka<br />roller du vill fylla.</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((s) => (
-              <div key={s.num} className="relative p-8 bg-white rounded-2xl border border-slate-100">
-                <div className="text-6xl font-extrabold text-violet-100 mb-4">{s.num}</div>
-                <h3 className="text-xl font-bold text-[#0f172a] mb-2">{s.title}</h3>
-                <p className="text-slate-500">{s.desc}</p>
-              </div>
-            ))}
+          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+            <p className="section-p fade-up" style={{ transitionDelay: '.1s' }}>En och samma hårdvara — installerad på ert kontor — kan köra en eller flera AI-medarbetare parallellt. Ni väljer vilka roller ni behöver. Vi konfigurerar och levererar.</p>
           </div>
         </div>
-      </section>
+        <div>
+          {/* Säljaren */}
+          <div className="worker-row fade-up">
+            <div className="worker-index">01</div>
+            <div>
+              <div className="worker-role">Sälj & Affärsutveckling</div>
+              <div className="worker-name">Säljaren</div>
+              <p className="worker-desc">Identifierar och kvalificerar leads, skriver personliga outreach-mail, bokar möten och håller CRM:et uppdaterat. Jobbar parallellt på hundratals prospekt — utan att tröttna en enda dag.</p>
+              <div className="worker-tasks">
+                {['Lead-research', 'Outreach & LinkedIn', 'Offertskrivning', 'CRM-uppdatering', 'Mötesbokning'].map(t => <span key={t} className="task-pill">{t}</span>)}
+              </div>
+            </div>
+            <div className="worker-roi">
+              <div className="roi-old">Anställd: 600 000 kr/år</div>
+              <div className="roi-new">60 000</div>
+              <div className="roi-unit">kr / år</div>
+              <div className="roi-save">Spar 540 000 kr</div>
+            </div>
+          </div>
+          {/* Marknadsassistenten */}
+          <div className="worker-row fade-up">
+            <div className="worker-index">02</div>
+            <div>
+              <div className="worker-role">Marknad & Content</div>
+              <div className="worker-name">Marknads&shy;assistenten</div>
+              <p className="worker-desc">Skriver SEO-optimerade artiklar, hanterar LinkedIn-närvaro, publicerar content och analyserar vad som fungerar. Din röst på nätet — alltid aktiv, alltid konsekvent.</p>
+              <div className="worker-tasks">
+                {['Artikelskrivning', 'LinkedIn-hantering', 'SEO-optimering', 'Contentpublicering'].map(t => <span key={t} className="task-pill">{t}</span>)}
+              </div>
+            </div>
+            <div className="worker-roi">
+              <div className="roi-old">Anställd: 500 000 kr/år</div>
+              <div className="roi-new">60 000</div>
+              <div className="roi-unit">kr / år</div>
+              <div className="roi-save">Spar 440 000 kr</div>
+            </div>
+          </div>
+          {/* Supportagenten */}
+          <div className="worker-row fade-up">
+            <div className="worker-index">03</div>
+            <div>
+              <div className="worker-role">Kundsupport & Service</div>
+              <div className="worker-name">Supportagenten</div>
+              <p className="worker-desc">Svarar på mail och ärenden dygnet runt, kategoriserar och eskalerar rätt, håller kundnöjdheten hög. Svarstid på sekunder — inte timmar. Alltid artig, alltid korrekt.</p>
+              <div className="worker-tasks">
+                {['Mailhantering', 'Ärendehantering', 'Eskalering', 'Kundkommunikation'].map(t => <span key={t} className="task-pill">{t}</span>)}
+              </div>
+            </div>
+            <div className="worker-roi">
+              <div className="roi-old">Tillgänglig: kontorstid</div>
+              <div className="roi-new">24/7</div>
+              <div className="roi-unit">alltid online</div>
+              <div className="roi-save">Noll väntetid</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* Prisöversikt */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#0f172a]">Enkla priser</h2>
-            <p className="mt-4 text-lg text-slate-500">Installation: 2 900 kr (engång) för alla planer.</p>
+      <div className="rule" />
+
+      {/* DARK BAND */}
+      <div className="dark-band">
+        <div className="dark-band-inner">
+          <div>
+            <h2>En låda.<br /><em>En hel avdelning.</em></h2>
+            <p>Vi levererar en Mac Mini till ert kontor — färdiginstallerad med AI-medarbetare som jobbar åt er dygnet runt. Ingen molntjänst. Inga månatliga surpriser. Er data stannar där den ska: hos er.</p>
+            <Link to="/kontakt" className="btn-light">Boka ett samtal →</Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 items-start">
-            {plans.map((p) => (
-              <div
-                key={p.name}
-                className={`p-8 rounded-2xl border-2 transition-all ${
-                  p.highlight
-                    ? 'border-violet-500 shadow-xl shadow-violet-100 scale-105'
-                    : 'border-slate-100 hover:border-violet-200'
-                }`}
-              >
-                {p.highlight && (
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-semibold mb-4">
-                    Populärast
-                  </div>
-                )}
-                <h3 className="text-xl font-bold text-[#0f172a]">{p.name}</h3>
-                <p className="text-sm text-slate-500 mt-1 mb-4">{p.desc}</p>
-                <div className="text-4xl font-extrabold text-[#0f172a]">
-                  {p.price === 'Offert' ? p.price : `${p.price} kr`}
-                  {p.price !== 'Offert' && <span className="text-lg font-normal text-slate-400">/mån</span>}
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-slate-600">
-                      <span className="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-xs">✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/kontakt"
-                  className={`mt-8 w-full block text-center px-6 py-3 rounded-full text-sm font-semibold transition-all ${
-                    p.highlight
-                      ? 'bg-gradient-to-r from-violet-600 to-indigo-500 text-white hover:shadow-lg'
-                      : 'border border-slate-200 text-slate-700 hover:border-violet-300'
-                  }`}
-                >
-                  Kom igång
-                </Link>
+          <div className="features-list">
+            {[
+              { icon: '📦', title: 'Hårdvara inkluderad', desc: 'Mac Mini levereras, installeras och konfigureras av oss — ni behöver inte göra något.' },
+              { icon: '🔒', title: 'Er data stannar på kontoret', desc: 'Inget moln. Inga tredjeparter. AI:n kör lokalt, fullständigt GDPR-säkert.' },
+              { icon: '🔌', title: 'Kopplas till era befintliga verktyg', desc: 'CRM, e-post, Slack, Google Workspace — AI:n lär sig era system, inte tvärtom.' },
+              { icon: '🛠️', title: 'Vi sköter allt underhåll', desc: 'Uppdateringar, finjusteringar och ny funktionalitet ingår i månadsavgiften.' },
+            ].map(f => (
+              <div key={f.title} className="feat">
+                <div className="feat-icon">{f.icon}</div>
+                <div className="feat-text"><h4>{f.title}</h4><p>{f.desc}</p></div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* PROOF */}
+      <div className="section">
+        <div className="section-label">Resultat</div>
+        <h2 className="section-h fade-up">Siffror vi<br />kan stå för</h2>
+        <div className="proof-grid">
+          <div className="proof-cell"><div className="proof-num">15<span>h</span></div><div className="proof-label">Sparade per vecka i genomsnitt på manuellt säljarbete</div></div>
+          <div className="proof-cell"><div className="proof-num">80<span>%</span></div><div className="proof-label">Av inkommande kundkommunikation hanteras automatiskt</div></div>
+          <div className="proof-cell"><div className="proof-num">2<span>v</span></div><div className="proof-label">Från kickoff till en fullt konfigurerad AI-medarbetare i drift</div></div>
+        </div>
+      </div>
+
+      <div className="rule" />
+
+      {/* PRICING */}
+      <div className="section" id="pricing">
+        <div className="section-label">Prissättning</div>
+        <h2 className="section-h fade-up">Enkelt och<br />transparent</h2>
+        <p className="section-p fade-up" style={{ transitionDelay: '.1s' }}>Fast månadsbelopp. Ingen bindning efter 6 månader. Inga dolda kostnader.</p>
+        <div className="pricing-grid">
+          <div className="price-card fade-up">
+            <div className="price-name">Starter</div>
+            <div className="price-amount">4 900 <span className="price-period">kr/mån</span></div>
+            <p className="price-desc">En AI-medarbetare, 2–3 integrationer. Perfekt för att komma igång och bevisa värdet.</p>
+            <hr className="price-divider" />
+            <ul className="price-features">
+              {['1 konfigurerad AI-agent', '2–3 systemintegrationer', '6 månaders minimiperiod', 'Onboarding & setup inkluderat'].map(f => <li key={f}>{f}</li>)}
+            </ul>
+            <Link to="/kontakt" className="price-btn">Kom igång</Link>
+          </div>
+          <div className="price-card featured fade-up" style={{ transitionDelay: '.1s' }}>
+            <div className="price-name">Growth</div>
+            <div className="price-amount">7 900 <span className="price-period">kr/mån</span></div>
+            <p className="price-desc">Obegränsat med integrationer, prioritetssupport och månadsvis genomgång.</p>
+            <hr className="price-divider" />
+            <ul className="price-features">
+              {['1 konfigurerad AI-agent', 'Obegränsade integrationer', 'Prioritetssupport', 'Månadsvis optimering'].map(f => <li key={f}>{f}</li>)}
+            </ul>
+            <Link to="/kontakt" className="price-btn">Välj Growth</Link>
+          </div>
+          <div className="price-card fade-up" style={{ transitionDelay: '.2s' }}>
+            <div className="price-name">Extra Agent</div>
+            <div className="price-amount">+3 000 <span className="price-period">kr/mån</span></div>
+            <p className="price-desc">Skala med fler AI-medarbetare i takt med att behovet växer.</p>
+            <hr className="price-divider" />
+            <ul className="price-features">
+              {['Ytterligare AI-agent', 'Delar befintliga integrationer', 'Skalbart utan övre gräns'].map(f => <li key={f}>{f}</li>)}
+            </ul>
+            <Link to="/kontakt" className="price-btn">Lägg till</Link>
+          </div>
+        </div>
+        <p className="pricing-note">Setup och installation: <strong>2 900 kr</strong> (engång) · Inkluderar konfiguration, integrationer och driftsättning av er Mac Mini · Hårdvara tillkommer vid behov</p>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div style={{ background: 'var(--white)' }}>
+        <div className="section">
+          <div className="section-label">Kundröster</div>
+          <h2 className="section-h fade-up">Vad våra<br />kunder säger</h2>
+          <div className="testi-grid">
+            <div className="testi fade-up">
+              <p className="testi-quote">"Vi sparar 15 timmar i veckan på manuellt säljarbete. Vår AI-medarbetare hanterar lead research, outreach och CRM-uppdateringar — vi fokuserar på att stänga affärer."</p>
+              <div className="testi-meta">
+                <div className="testi-avatar">JL</div>
+                <div><div className="testi-author">Johan L.</div><div className="testi-role">VD, B2B-bolag · Stockholm</div></div>
+              </div>
+            </div>
+            <div className="testi fade-up" style={{ transitionDelay: '.1s' }}>
+              <p className="testi-quote">"Vår AI-medarbetare hanterar 80% av all inkommande support. Svarstiden gick från timmar till sekunder — och kundnöjdheten ökade markant utan att vi anställde fler."</p>
+              <div className="testi-meta">
+                <div className="testi-avatar">SA</div>
+                <div><div className="testi-author">Sara A.</div><div className="testi-role">Grundare, SaaS-bolag · Göteborg</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-violet-600 to-indigo-600">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white">Redo att effektivisera?</h2>
-          <p className="mt-4 text-violet-200 text-lg">
-            Boka en gratis 30-minutersaudit — vi visar hur AI kan spara tid och pengar i just ditt företag.
-          </p>
-          <Link
-            to="/kontakt"
-            className="mt-8 inline-flex items-center px-8 py-4 rounded-full bg-white text-violet-700 font-semibold hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Boka gratis demo
-          </Link>
-        </div>
-      </section>
+      <div className="cta-section">
+        <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '20px' }}>Redo att börja?</p>
+        <h2 className="fade-up">En Mac Mini.<br /><em>Din starkaste medarbetare.</em></h2>
+        <p>Boka ett kostnadsfritt 30-minuterssamtal. Vi identifierar vad ni vill automatisera och levererar hårdvara + AI på 2 veckor.</p>
+        <Link to="/kontakt" className="btn-dark">Boka ett gratis samtal →</Link>
+      </div>
     </>
   )
 }

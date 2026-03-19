@@ -19,6 +19,7 @@ import Integritetspolicy from './pages/Integritetspolicy'
 import Villkor from './pages/Villkor'
 import Demo from './pages/Demo'
 import AIRevision from './pages/AIRevision'
+import Partner from './pages/Partner'
 import ExitIntent from './components/ExitIntent'
 import CookieBanner from './components/CookieBanner'
 
@@ -53,9 +54,11 @@ export default function App() {
           <Route path="/villkor" element={<Villkor />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/ai-revision" element={<AIRevision />} />
+          <Route path="/partner" element={<Partner />} />
         </Routes>
       </main>
       <Footer />
+      <CookieBanner />
     </>
   )
 }

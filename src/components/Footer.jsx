@@ -33,6 +33,7 @@ export default function Footer() {
             <li><Link to="/kontakt">Kontakt</Link></li>
             <li><Link to="/integritetspolicy">Integritetspolicy</Link></li>
             <li><Link to="/villkor">Allmänna villkor</Link></li>
+            <li><Link to="/partner">Partnerprogram</Link></li>
             <li><a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer">Agent Configurator</a></li>
           </ul>
         </div>

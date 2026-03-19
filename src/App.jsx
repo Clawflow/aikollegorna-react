@@ -15,6 +15,8 @@ import Ehandel from './pages/branches/Ehandel'
 import Juridik from './pages/branches/Juridik'
 import Blogg from './pages/Blogg'
 import BloggArtikel from './pages/BloggArtikel'
+import Integritetspolicy from './pages/Integritetspolicy'
+import Villkor from './pages/Villkor'
 import ExitIntent from './components/ExitIntent'
 
 function ScrollToTop() {
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/juridik" element={<Juridik />} />
           <Route path="/blogg" element={<Blogg />} />
           <Route path="/blogg/:id" element={<BloggArtikel />} />
+          <Route path="/integritetspolicy" element={<Integritetspolicy />} />
+          <Route path="/villkor" element={<Villkor />} />
         </Routes>
       </main>
       <Footer />

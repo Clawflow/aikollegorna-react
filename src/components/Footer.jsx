@@ -29,6 +29,8 @@ export default function Footer() {
             <li><Link to="/om-oss">Om oss</Link></li>
             <li><Link to="/priser">Priser</Link></li>
             <li><Link to="/kontakt">Kontakt</Link></li>
+            <li><Link to="/integritetspolicy">Integritetspolicy</Link></li>
+            <li><Link to="/villkor">Allmänna villkor</Link></li>
             <li><a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer">Agent Configurator</a></li>
           </ul>
         </div>
@@ -43,8 +45,8 @@ export default function Footer() {
       <div className="footer-bottom">
         <span>AI kollegorna AB · © 2026</span>
         <div className="footer-socials">
-          <a href="#">Integritetspolicy</a>
-          <a href="#">Villkor</a>
+          <Link to="/integritetspolicy">Integritetspolicy</Link>
+          <Link to="/villkor">Villkor</Link>
         </div>
       </div>
     </footer>

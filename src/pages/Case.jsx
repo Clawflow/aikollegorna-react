@@ -30,6 +30,10 @@ export default function Case() {
           <p className="case-hero-sub fade-up">
             Sveriges snabbast växande e-handelsbolag inom accessoarer automatiserade sin bildbearbetning med en AI-medarbetare installerad direkt på kontoret.
           </p>
+          <div className="case-award-badge fade-up">
+            🏆 Sveriges snabbast växande e-handlare 2025
+            <span>Svea Bank / UC — 2 334% tillväxt</span>
+          </div>
           <div className="case-hero-meta fade-up">
             <div className="case-meta-item">
               <span className="case-meta-label">Bransch</span>
@@ -142,6 +146,7 @@ export default function Case() {
               { num: '96%', label: 'Tidsbesparing', desc: 'Från 8 timmar till 20 minuter per vecka' },
               { num: '500+', label: 'Bilder per timme', desc: 'Automatisk bearbetning utan mänsklig input' },
               { num: '100%', label: 'GDPR-säkert', desc: 'All data stannar on-premise på kontoret' },
+              { num: '2334%', label: 'Omsättningstillväxt 2025', desc: 'Utvalda till #1 på Sveriges e-handelsraket-listan av Svea Bank' },
             ].map(r => (
               <div key={r.label} className="case-result-card fade-up">
                 <div className="case-result-num">{r.num}</div>

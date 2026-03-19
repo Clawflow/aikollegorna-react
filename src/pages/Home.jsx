@@ -105,6 +105,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AWARD PROOF */}
+      <div className="award-proof-banner fade-up">
+        <span className="award-icon">🏆</span>
+        <p>
+          <strong>Wristbuddys</strong> — kund hos AI Kollegorna — utsågs till
+          <strong> Sveriges snabbast växande e-handlare 2025</strong> av Svea Bank.
+          Tillväxt: 2 334%.
+        </p>
+        <a href="/case" className="award-link">Läs fallstudien →</a>
+      </div>
+
       <div className="rule" />
 
       {/* WORKERS */}

@@ -8,6 +8,7 @@ import OmOss from './pages/OmOss'
 import Priser from './pages/Priser'
 import Kontakt from './pages/Kontakt'
 import Case from './pages/Case'
+import Fallstudier from './pages/Fallstudier'
 import Fastighet from './pages/branches/Fastighet'
 import Redovisning from './pages/branches/Redovisning'
 import Ehandel from './pages/branches/Ehandel'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/priser" element={<Priser />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/case" element={<Case />} />
+          <Route path="/fallstudier" element={<Fallstudier />} />
           <Route path="/fastighet" element={<Fastighet />} />
           <Route path="/redovisning" element={<Redovisning />} />
           <Route path="/ehandel" element={<Ehandel />} />

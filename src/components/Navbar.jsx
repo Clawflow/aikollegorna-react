@@ -61,6 +61,7 @@ export default function Navbar() {
               </div>
             )}
           </li>
+          <li><Link to="/fallstudier">Fallstudier</Link></li>
           <li><Link to="/om-oss">Om oss</Link></li>
           <li><Link to="/priser">Priser</Link></li>
           <li><Link to="/kontakt">Kontakt</Link></li>
@@ -81,6 +82,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
+        <Link to="/fallstudier" onClick={() => setOpen(false)}>Fallstudier</Link>
         <Link to="/om-oss" onClick={() => setOpen(false)}>Om oss</Link>
         <Link to="/priser" onClick={() => setOpen(false)}>Priser</Link>
         <Link to="/kontakt" onClick={() => setOpen(false)}>Kontakt</Link>

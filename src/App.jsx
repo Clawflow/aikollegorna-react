@@ -15,6 +15,7 @@ import Ehandel from './pages/branches/Ehandel'
 import Juridik from './pages/branches/Juridik'
 import Blogg from './pages/Blogg'
 import BloggArtikel from './pages/BloggArtikel'
+import ExitIntent from './components/ExitIntent'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -26,6 +27,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <ExitIntent />
       <Navbar />
       <main>
         <Routes>

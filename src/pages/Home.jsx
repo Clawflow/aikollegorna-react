@@ -97,6 +97,20 @@ export default function Home() {
               <a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer" className="btn-light-solid">Konfigurera din agent →</a>
               <a href="#how-it-works" className="btn-text-light">Se hur det fungerar →</a>
             </div>
+            <div className="hero-stats">
+              <div className="hero-stat">
+                <span className="stat-n">12h</span>
+                <span className="stat-l">Tidsbesparing/vecka</span>
+              </div>
+              <div className="hero-stat">
+                <span className="stat-n">1-2 dagar</span>
+                <span className="stat-l">Setup-tid</span>
+              </div>
+              <div className="hero-stat">
+                <span className="stat-n">100%</span>
+                <span className="stat-l">Data stannar lokalt</span>
+              </div>
+            </div>
             <p className="hero-book-link">
               Eller <a href="/kontakt" className="hero-inline-link">boka ett gratis 30-min samtal</a> —
               vi visar ett live-demo.
@@ -142,9 +156,13 @@ export default function Home() {
 
       {/* CUSTOMER LOGOS */}
       <section className="logo-strip">
-        <p className="logo-strip-label">Används av växande svenska företag</p>
+        <p className="logo-strip-label">Kunder som litar på AI Kollegorna</p>
         <div className="logo-strip-row">
-          {[1, 2, 3, 4, 5, 6].map(n => (
+          <div className="real-logo wristbuddys-logo">
+            Wristbuddys
+            <span>#1 Sverige 2025</span>
+          </div>
+          {[1, 2, 3, 4, 5].map(n => (
             <div key={n} className="logo-placeholder" aria-label={`Kundlogotyp ${n}`}>
               <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="120" height="40" rx="6" fill="#D1D5DB" />

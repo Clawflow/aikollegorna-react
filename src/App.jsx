@@ -18,7 +18,9 @@ import BloggArtikel from './pages/BloggArtikel'
 import Integritetspolicy from './pages/Integritetspolicy'
 import Villkor from './pages/Villkor'
 import Demo from './pages/Demo'
+import AIRevision from './pages/AIRevision'
 import ExitIntent from './components/ExitIntent'
+import CookieBanner from './components/CookieBanner'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -50,6 +52,7 @@ export default function App() {
           <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           <Route path="/villkor" element={<Villkor />} />
           <Route path="/demo" element={<Demo />} />
+          <Route path="/ai-revision" element={<AIRevision />} />
         </Routes>
       </main>
       <Footer />

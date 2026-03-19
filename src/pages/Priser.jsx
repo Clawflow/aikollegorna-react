@@ -227,6 +227,21 @@ export default function Priser() {
         </div>
       </div>
 
+      {/* ─── AI-REVISION CTA ─── */}
+      <div className="fade-up" style={{ maxWidth: 700, margin: '0 auto', padding: '0 48px 60px', textAlign: 'center' }}>
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(0,71,255,0.06) 100%)',
+          border: '1px solid rgba(124,58,237,0.15)', borderRadius: 16, padding: '32px 36px'
+        }}>
+          <p style={{ fontSize: 16, fontWeight: 500, color: 'var(--ink)', marginBottom: 12 }}>
+            Inte redo att köpa?
+          </p>
+          <Link to="/ai-revision" style={{ fontSize: 15, fontWeight: 600, color: '#7C3AED', textDecoration: 'none' }}>
+            Börja med en gratis AI-revision →
+          </Link>
+        </div>
+      </div>
+
       {/* ─── CTA ─── */}
       <div style={{ background: 'var(--ink)', padding: '80px 48px', textAlign: 'center' }}>
         <h2 style={{ ...sf, fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, color: 'var(--paper)', lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 16 }}>

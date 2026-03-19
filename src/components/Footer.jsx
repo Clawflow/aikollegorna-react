@@ -22,6 +22,7 @@ export default function Footer() {
             <li><Link to="/fallstudier">Alla fallstudier</Link></li>
             <li><Link to="/blogg">Blogg</Link></li>
             <li><Link to="/demo">Live demo</Link></li>
+            <li><Link to="/ai-revision">Gratis AI-revision</Link></li>
           </ul>
         </div>
         <div className="footer-col">

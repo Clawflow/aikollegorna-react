@@ -2421,3 +2421,30 @@ nav.site-nav.dark-nav .nav-demo-btn {
     padding: 48px 16px;
   }
 }
+
+/* ─── NAV NEW BADGE ─── */
+.nav-new-badge {
+  display: inline-block;
+  background: #7C3AED;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+/* ─── AI-REVISION RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .revision-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 480px) {
+  .revision-cta-banner {
+    padding: 48px 16px !important;
+  }
+}

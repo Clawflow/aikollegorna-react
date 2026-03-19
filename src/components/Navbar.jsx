@@ -8,11 +8,20 @@ const branches = [
   { emoji: '⚖️', label: 'Juridik', to: '/juridik' },
 ]
 
+const resurser = [
+  { emoji: '🔍', label: 'AI-revision', to: '/ai-revision', isNew: true },
+  { emoji: '🎬', label: 'Demo', to: '/demo' },
+  { emoji: '📝', label: 'Blogg', to: '/blogg' },
+  { emoji: '📂', label: 'Fallstudier', to: '/fallstudier' },
+]
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [dark, setDark] = useState(false)
   const [branchOpen, setBranchOpen] = useState(false)
+  const [resurserOpen, setResurserOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const resurserRef = useRef(null)
 
   useEffect(() => {
     // Dark nav when hero is visible
@@ -26,11 +35,14 @@ export default function Navbar() {
     return () => obs.disconnect()
   }, [])
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClick(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setBranchOpen(false)
+      }
+      if (resurserRef.current && !resurserRef.current.contains(e.target)) {
+        setResurserOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClick)
@@ -61,8 +73,25 @@ export default function Navbar() {
               </div>
             )}
           </li>
-          <li><Link to="/fallstudier">Fallstudier</Link></li>
-          <li><Link to="/blogg">Blogg</Link></li>
+          <li className="nav-dropdown" ref={resurserRef} onMouseEnter={() => setResurserOpen(true)} onMouseLeave={() => setResurserOpen(false)}>
+            <button className="nav-dropdown-trigger" onClick={() => setResurserOpen(!resurserOpen)}>
+              Resurser
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ marginLeft: 4, transition: 'transform .2s', transform: resurserOpen ? 'rotate(180deg)' : 'rotate(0)' }}>
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {resurserOpen && (
+              <div className="nav-dropdown-menu">
+                {resurser.map(r => (
+                  <Link key={r.to} to={r.to} className="nav-dropdown-item" onClick={() => setResurserOpen(false)}>
+                    <span className="nav-dropdown-emoji">{r.emoji}</span>
+                    {r.label}
+                    {r.isNew && <span className="nav-new-badge">NY</span>}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </li>
           <li><Link to="/om-oss">Om oss</Link></li>
           <li><Link to="/priser">Priser</Link></li>
           <li><Link to="/kontakt">Kontakt</Link></li>
@@ -84,8 +113,14 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <Link to="/fallstudier" onClick={() => setOpen(false)}>Fallstudier</Link>
-        <Link to="/blogg" onClick={() => setOpen(false)}>Blogg</Link>
+        <div className="mobile-menu-group">
+          <span className="mobile-menu-label">Resurser</span>
+          {resurser.map(r => (
+            <Link key={r.to} to={r.to} className="mobile-menu-branch" onClick={() => setOpen(false)}>
+              {r.emoji} {r.label} {r.isNew && <span className="nav-new-badge" style={{ marginLeft: 6 }}>NY</span>}
+            </Link>
+          ))}
+        </div>
         <Link to="/om-oss" onClick={() => setOpen(false)}>Om oss</Link>
         <Link to="/priser" onClick={() => setOpen(false)}>Priser</Link>
         <Link to="/kontakt" onClick={() => setOpen(false)}>Kontakt</Link>

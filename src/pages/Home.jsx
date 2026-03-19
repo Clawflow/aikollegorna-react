@@ -25,6 +25,52 @@ export default function Home() {
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Vi installerar en Mac Mini på ert kontor med AI som sköter sälj, marknad och support dygnet runt. On-premise, GDPR-säkert. Från 4 900 kr/mån.')
   }, [])
 
+  useEffect(() => {
+    // FAQ Schema for "Hur det fungerar"
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hur lång tid tar installationen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Installationen tar 1-2 dagar. Vi skickar en Mac Mini och installerar allt remotely. Du behöver inte göra något tekniskt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Är AI-medarbetaren GDPR-säker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, absolut. All data stannar på er Mac Mini som finns i ert kontor. Ingen data skickas till molnet, OpenAI, Google eller oss. GDPR-säkert by design."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad kostar en AI-medarbetare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Starter-paketet kostar 4 900 kr/mån plus 2 900 kr i setup-avgift (engångskostnad). Growth-paketet kostar 7 900 kr/mån."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad kan AI-medarbetaren göra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI-medarbetaren kan hantera e-post, kundärenden, produktbilder, bokföring, lead-generering, rapportskrivning och många andra administrativa uppgifter — dygnet runt."
+          }
+        }
+      ]
+    });
+    document.head.appendChild(script);
+    return () => document.head.removeChild(script);
+  }, [])
+
   return (
     <>
       {/* HERO */}

@@ -197,6 +197,9 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div className="hiw-case-link fade-up" style={{ transitionDelay: '.25s' }}>
+          <Link to="/case" className="hiw-case-btn">📸 Läs fallstudie: Wristbuddys — 96% tidsbesparing →</Link>
+        </div>
       </section>
 
       <div className="rule" />

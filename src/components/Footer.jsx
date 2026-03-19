@@ -18,6 +18,7 @@ export default function Footer() {
             <li><Link to="/tjanster">Säljaren</Link></li>
             <li><Link to="/tjanster">Marknadsassistenten</Link></li>
             <li><Link to="/tjanster">Supportagenten</Link></li>
+            <li><Link to="/case">Fallstudie: Wristbuddys</Link></li>
           </ul>
         </div>
         <div className="footer-col">

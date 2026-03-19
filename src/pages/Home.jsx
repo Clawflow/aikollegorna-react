@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import HeroCanvas from '../components/HeroCanvas'
 import NewsletterSection from '../components/NewsletterSection'
+import Testimonials from '../components/Testimonials'
 
 function useFadeUp() {
   useEffect(() => {
@@ -183,6 +184,8 @@ export default function Home() {
         </p>
         <a href="/case" className="award-link">Läs fallstudien →</a>
       </div>
+
+      <Testimonials />
 
       <div className="rule" />
 

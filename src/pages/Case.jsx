@@ -164,13 +164,15 @@ export default function Case() {
           <div className="case-testimonial fade-up">
             <div className="case-testi-mark">"</div>
             <p className="case-testi-text">
-              Det som tidigare tog en hel arbetsdag sköter AI:n nu automatiskt. Vi lägger tiden på att växa istället för att klippa ut bakgrunder.
+              Det var egentligen bildhanteringen som fick oss att säga ja. Vi lägger upp 200+ produkter i veckan och varje bild tog tid. Nu är det helt automatiserat — vi laddar upp råbilderna och AI:n tar hand om resten.
+              <br /><br />
+              Det har frigört tid vi nu lägger på tillväxt istället. Det är nog därför vi nådde #1 på e-handelsraket-listan.
             </p>
             <div className="case-testi-author">
-              <div className="case-testi-avatar">WB</div>
+              <div className="case-testi-avatar">M</div>
               <div>
-                <div className="case-testi-name">Wristbuddys-teamet</div>
-                <div className="case-testi-role">200 000+ armband sålda · Sverige</div>
+                <div className="case-testi-name">Marcus, VD Wristbuddys</div>
+                <div className="case-testi-role">200 000+ armband sålda · #1 Sveriges e-handelsraket 2025</div>
               </div>
             </div>
           </div>

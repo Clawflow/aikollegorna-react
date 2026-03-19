@@ -230,7 +230,7 @@ nav.site-nav.dark-nav .nav-dropdown-item:hover { background: rgba(255,255,255,.0
 .pricing-note { margin-top: 24px; text-align: center; font-size: 13px; color: var(--muted); }
 
 /* ─── TESTIMONIALS ─── */
-.testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 60px; }
 .testi { border: 1px solid rgba(13,13,13,0.07); border-radius: 16px; padding: 40px; background: rgba(255,255,255,0.8); transition: all 0.25s ease; }
 .testi:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 .testi-quote { font-family: var(--serif); font-size: 20px; font-weight: 400; font-style: italic; line-height: 1.6; color: var(--ink); margin-bottom: 28px; }
@@ -329,12 +329,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* ─── FADE UP ─── */
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-.fade-up.in { opacity: 1; transform: translateY(0); }
-.fade-up:nth-child(2) { transition-delay: 0.05s; }
-.fade-up:nth-child(3) { transition-delay: 0.1s; }
-.fade-up:nth-child(4) { transition-delay: 0.15s; }
-.fade-up:nth-child(5) { transition-delay: 0.2s; }
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+.fade-up.in { opacity: 1; transform: none; }
+.fade-up:nth-child(2) { transition-delay: .08s; }
+.fade-up:nth-child(3) { transition-delay: .16s; }
+.fade-up:nth-child(4) { transition-delay: .24s; }
+.fade-up:nth-child(5) { transition-delay: .32s; }
 
 /* ─── MICRO-INTERACTIONS ─── */
 a, button { transition: all .2s ease; }
@@ -375,28 +375,23 @@ a, button { transition: all .2s ease; }
 }
 
 /* ─── LOGO STRIP ─── */
-.logo-strip {
-  padding: 48px 48px;
-  text-align: center;
-  background: var(--white);
-}
+.logo-strip { padding: 48px 2rem; overflow: hidden; background: var(--white); }
+.logo-strip-inner { max-width: 1280px; margin: 0 auto; }
 .logo-strip-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 28px;
+  text-align: center; font-size: 0.6875rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 32px;
 }
 .logo-strip-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
+  display: flex; gap: 40px; align-items: center; justify-content: center;
+  flex-wrap: wrap; max-width: 900px; margin: 0 auto;
 }
+.logo-item {
+  font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--muted);
+  opacity: 0.45; transition: opacity .2s; letter-spacing: -0.3px;
+  filter: grayscale(100%);
+}
+.logo-item:hover { opacity: 0.8; filter: none; }
 .logo-placeholder {
   opacity: 0.5;
   transition: opacity 0.3s;
@@ -1401,20 +1396,14 @@ a, button { transition: all .2s ease; }
 
 /* === AWARD PROOF BANNER === */
 .award-proof-banner {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border: 2px solid #f59e0b;
-  border-radius: 12px;
-  padding: 1.25rem 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-  text-align: left;
+  background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(79,70,229,0.06) 100%);
+  border: 1px solid rgba(124,58,237,0.15); border-radius: 12px;
+  padding: 16px 24px; display: flex; align-items: center; gap: 16px;
+  max-width: 640px; margin: 48px auto 0;
 }
-.award-proof-banner .award-icon { font-size: 2rem; flex-shrink: 0; }
-.award-proof-banner p { margin: 0; color: #92400e; font-size: 0.95rem; line-height: 1.5; }
-.award-proof-banner strong { color: #78350f; }
+.award-proof-banner .award-icon { font-size: 28px; flex-shrink: 0; }
+.award-proof-banner p { font-size: 0.875rem; color: var(--ink); line-height: 1.5; margin: 0; }
+.award-proof-banner strong { color: #7C3AED; }
 .award-proof-banner .award-link {
   color: #7C3AED;
   font-weight: 600;
@@ -1825,43 +1814,32 @@ a, button { transition: all .2s ease; }
 
 /* ─── HERO STATS ROW ─── */
 .hero-stats {
-  display: flex;
-  gap: 2.5rem;
-  margin: 2rem 0 1rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex; gap: 32px; margin-top: 40px; margin-bottom: 24px;
+  padding-top: 32px; border-top: 1px solid rgba(255,255,255,.12);
 }
-.hero-stat { text-align: center; }
+.hero-stat { display: flex; flex-direction: column; gap: 4px; }
 .stat-n {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: white;
+  font-family: var(--serif); font-size: 1.75rem; font-weight: 900;
+  color: #FFFFFF; line-height: 1; letter-spacing: -0.02em;
 }
 .stat-l {
-  display: block;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.7);
-  margin-top: 0.25rem;
+  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
 }
 @media (max-width: 640px) {
-  .hero-stats { gap: 1rem; }
-  .stat-n { font-size: 1.2rem; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .stat-n { font-size: 1.4rem; }
 }
 
 /* ─── REAL LOGO (Customer Logos) ─── */
 .real-logo {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
   background: linear-gradient(135deg, #7C3AED, #4F46E5);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: white !important; opacity: 1 !important; filter: none !important;
+  padding: 8px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 700;
 }
-.real-logo span { font-size: 0.65rem; opacity: 0.8; margin-top: 0.15rem; }
+.real-logo span { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; opacity: 0.8; }
 
 /* ─── EXIT INTENT MODAL ─── */
 .exit-overlay {
@@ -2481,8 +2459,8 @@ nav.site-nav.dark-nav .nav-demo-btn {
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
 }

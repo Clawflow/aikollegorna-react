@@ -351,6 +351,7 @@ export default function Home() {
             <Link to="/kontakt" className="price-btn">Kom igång</Link>
           </div>
           <div className="price-card featured fade-up" style={{ transitionDelay: '.1s' }}>
+            <div className="price-popular-badge">Mest populärt</div>
             <div className="price-name">Growth</div>
             <div className="price-amount">7 900 <span className="price-period">kr/mån</span></div>
             <p className="price-desc">Obegränsat med integrationer, prioritetssupport och månadsvis genomgång.</p>

@@ -14,6 +14,7 @@ function useFadeUp() {
 const services = [
   {
     num: '01', role: 'Sälj & Affärsutveckling', name: 'Säljaren',
+    intro: 'AI-medarbetaren söker igenom databaser och LinkedIn, identifierar beslutsfattare, skriver personliga mail baserat på prospektets bransch och behov, och bokar möten direkt i er kalender — allt automatiskt, varje dag.',
     desc: 'Jobbar som en senior säljare — men utan lön, semesterdagar eller sjukfrånvaro. Identifierar leads, personaliserar outreach och håller CRM:et uppdaterat dygnet runt.',
     tasks: ['🔍 Lead-research','✉️ Outreach-mail','💼 LinkedIn DM','📅 Mötesbokning','📊 CRM-uppdatering','📝 Offertskrivning'],
     roiLabel: 'ROI-kalkyl',
@@ -22,6 +23,7 @@ const services = [
   },
   {
     num: '02', role: 'Marknad & Content', name: 'Marknadsassistenten',
+    intro: 'AI-medarbetaren analyserar era bäst presterande inlägg, skriver nya artiklar och LinkedIn-poster i er tonalitet, schemalägger publicering och rapporterar vilka ämnen som driver mest trafik och leads.',
     desc: 'Publicerar, optimerar och håller er digitala närvaro levande — varje dag. Skriver artiklar i er ton, hanterar LinkedIn och säkerställer att ni syns där era kunder söker.',
     tasks: ['📄 SEO-artiklar','💼 LinkedIn-hantering','📱 Sociala medier','📊 Contentanalys','🎯 Kampanjhantering','📧 Nyhetsbrev'],
     roiLabel: 'ROI-kalkyl',
@@ -30,6 +32,7 @@ const services = [
   },
   {
     num: '03', role: 'Kundsupport & Service', name: 'Supportagenten',
+    intro: 'AI-medarbetaren läser inkommande mail och chattmeddelanden, förstår kundens problem, svarar med relevant information från er kunskapsbas och eskalerar automatiskt till rätt person vid komplexa ärenden.',
     desc: 'Svarar på kundärenden dygnet runt med svarstider på sekunder. Kategoriserar, prioriterar och eskalerar rätt — och håller kundnöjdheten hög utan att ni behöver anställa mer personal.',
     tasks: ['📬 Mailhantering','🎫 Ärendehantering','↗️ Eskalering','📊 Supportstatistik','💬 Chatsvar','📚 FAQ-hantering'],
     roiLabel: 'Tillgänglighet',
@@ -63,6 +66,7 @@ export default function Tjanster() {
               <div style={{ fontFamily: 'var(--serif)', fontSize: 80, fontWeight: 900, color: 'rgba(13,13,13,.08)', lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--blue)', marginBottom: 10, marginTop: -8 }}>{s.role}</div>
               <div style={{ fontFamily: 'var(--serif)', fontSize: 36, fontWeight: 700, letterSpacing: -1, marginBottom: 16 }} dangerouslySetInnerHTML={{ __html: s.name }} />
+              <p style={{ fontSize: 15, fontWeight: 400, color: 'var(--ink)', lineHeight: 1.8, marginBottom: 16, background: 'linear-gradient(135deg, rgba(124,58,237,0.06), rgba(0,71,255,0.06))', borderLeft: '3px solid #7C3AED', padding: '14px 18px', borderRadius: '0 8px 8px 0' }}>{s.intro}</p>
               <p style={{ fontSize: 16, fontWeight: 300, color: 'var(--muted)', lineHeight: 1.8, marginBottom: 28 }}>{s.desc}</p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {s.tasks.map(t => <div key={t} style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 8, padding: '12px 16px', fontSize: 13, fontWeight: 500 }}>{t}</div>)}
@@ -90,10 +94,11 @@ export default function Tjanster() {
 
       <div style={{ background: 'var(--ink)', padding: '80px 48px', textAlign: 'center' }}>
         <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, color: 'var(--paper)', lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 16 }}>
-          Redo att anställa din<br /><em style={{ color: 'var(--blue)' }}>första AI-medarbetare?</em>
+          Redo att komma igång?
         </h2>
-        <p style={{ fontSize: 16, fontWeight: 300, color: 'rgba(247,243,238,.6)', marginBottom: 32 }}>Boka ett kostnadsfritt 30-minuterssamtal. Vi identifierar rätt use-case och levererar på 2 veckor.</p>
-        <Link to="/kontakt" className="btn-light">Boka ett samtal →</Link>
+        <p style={{ fontSize: 16, fontWeight: 300, color: 'rgba(247,243,238,.6)', marginBottom: 32 }}>Konfigurera din agent på 3 minuter — välj roll, integrationer och arbetsflöden.</p>
+        <a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer" className="btn-light" style={{ marginRight: 16 }}>Konfigurera din agent på 3 minuter →</a>
+        <Link to="/kontakt" className="btn-light" style={{ background: 'transparent', border: '1.5px solid rgba(247,243,238,.3)', color: 'var(--paper)', marginTop: 16 }}>Eller boka ett samtal →</Link>
       </div>
     </>
   )

@@ -26,6 +26,7 @@ export default function Footer() {
             <li><Link to="/om-oss">Om oss</Link></li>
             <li><Link to="/priser">Priser</Link></li>
             <li><Link to="/kontakt">Kontakt</Link></li>
+            <li><a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer">Agent Configurator</a></li>
           </ul>
         </div>
         <div className="footer-col">

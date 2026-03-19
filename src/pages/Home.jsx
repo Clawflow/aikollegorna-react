@@ -48,8 +48,8 @@ export default function Home() {
             <h1 className="hero-h1">Din AI-medarbetare<br />bor på <em>ditt kontor.</em></h1>
             <p className="hero-sub">Vi installerar en Mac Mini hos er — färdigkonfigurerad med AI som sköter sälj, marknad och support. Den sitter på ert skrivbord och jobbar dygnet runt, utan sjukfrånvaro eller övertid.</p>
             <div className="hero-actions">
-              <Link to="/kontakt" className="btn-light-solid">Boka ett samtal</Link>
-              <Link to="/tjanster" className="btn-text-light">Se hur det fungerar →</Link>
+              <a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer" className="btn-light-solid">Konfigurera din agent →</a>
+              <a href="#how-it-works" className="btn-text-light">Se hur det fungerar →</a>
             </div>
           </div>
           <div>
@@ -89,6 +89,21 @@ export default function Home() {
           ])}
         </div>
       </div>
+
+      {/* CUSTOMER LOGOS */}
+      <section className="logo-strip">
+        <p className="logo-strip-label">Används av växande svenska företag</p>
+        <div className="logo-strip-row">
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <div key={n} className="logo-placeholder" aria-label={`Kundlogotyp ${n}`}>
+              <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="120" height="40" rx="6" fill="#D1D5DB" />
+                <text x="60" y="24" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="var(--sans)" fontWeight="500">Logotyp</text>
+              </svg>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className="rule" />
 
@@ -160,6 +175,29 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* HOW IT WORKS */}
+      <section id="how-it-works" className="section how-it-works-section">
+        <div className="section-label">Så funkar det</div>
+        <h2 className="section-h fade-up">Fyra steg till<br />din AI-medarbetare.</h2>
+        <div className="hiw-stepper fade-up" style={{ transitionDelay: '.15s' }}>
+          {[
+            { num: 1, title: 'Installation', desc: 'Vi installerar en Mac Mini på ert kontor. Klart på en dag.' },
+            { num: 2, title: 'Konfiguration', desc: 'Vi konfigurerar er AI-medarbetare med era system och arbetsflöden.' },
+            { num: 3, title: 'Igång dag ett', desc: 'AI-medarbetaren börjar jobba direkt — sälj, marknad eller support.' },
+            { num: 4, title: 'Löpande förbättring', desc: 'Månatlig uppföljning, optimering och nya funktioner.' },
+          ].map((step, i, arr) => (
+            <div key={step.num} className="hiw-step">
+              <div className="hiw-circle-wrap">
+                <div className="hiw-circle">{step.num}</div>
+                {i < arr.length - 1 && <div className="hiw-line" />}
+              </div>
+              <h3 className="hiw-title">{step.title}</h3>
+              <p className="hiw-desc">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className="rule" />
 

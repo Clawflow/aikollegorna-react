@@ -17,6 +17,7 @@ import Blogg from './pages/Blogg'
 import BloggArtikel from './pages/BloggArtikel'
 import Integritetspolicy from './pages/Integritetspolicy'
 import Villkor from './pages/Villkor'
+import Demo from './pages/Demo'
 import ExitIntent from './components/ExitIntent'
 
 function ScrollToTop() {
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/blogg/:id" element={<BloggArtikel />} />
           <Route path="/integritetspolicy" element={<Integritetspolicy />} />
           <Route path="/villkor" element={<Villkor />} />
+          <Route path="/demo" element={<Demo />} />
         </Routes>
       </main>
       <Footer />

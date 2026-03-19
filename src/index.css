@@ -2448,3 +2448,52 @@ nav.site-nav.dark-nav .nav-demo-btn {
     padding: 48px 16px !important;
   }
 }
+
+/* === COOKIE BANNER === */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 3px solid #7C3AED;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #374151;
+  max-width: 600px;
+}
+.cookie-banner a { color: #7C3AED; text-decoration: underline; }
+.cookie-actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+.cookie-accept {
+  background: #7C3AED;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cookie-decline {
+  background: transparent;
+  color: #6B7280;
+  border: 1px solid #D1D5DB;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+@media (max-width: 640px) {
+  .cookie-banner { padding: 1rem; }
+  .cookie-banner p { font-size: 0.8rem; }
+}

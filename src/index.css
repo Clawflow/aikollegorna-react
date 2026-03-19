@@ -1429,3 +1429,304 @@ input[type="range"]::-moz-range-thumb {
   color: #fcd34d;
   margin-top: 0.25rem;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BLOGG — Listsida & Artikelsida
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Blogg Grid ── */
+.blogg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Blogg Card ── */
+.blogg-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blogg-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+
+/* Card image placeholder */
+.blogg-card-img {
+  background: linear-gradient(135deg, #EDE8E1 0%, #F7F3EE 100%);
+  padding: 40px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  border-bottom: 1px solid var(--border);
+}
+.blogg-card-img-inner {
+  width: 72px;
+  height: 72px;
+  background: var(--white);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.blogg-card-icon {
+  font-size: 32px;
+}
+
+/* Card body */
+.blogg-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Card meta */
+.blogg-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.blogg-card-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 12px;
+  border: 1px solid;
+}
+.blogg-card-date,
+.blogg-card-read {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Card title */
+.blogg-card-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+/* Card ingress */
+.blogg-card-ingress {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card link */
+.blogg-card-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  transition: opacity 0.2s;
+}
+.blogg-card:hover .blogg-card-link {
+  opacity: 0.7;
+}
+
+/* ── Artikel Hero ── */
+.artikel-hero {
+  background: linear-gradient(135deg, #F7F3EE 0%, #EDE8E1 100%);
+  padding: 140px 48px 80px;
+}
+.artikel-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.artikel-back {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.artikel-back:hover {
+  color: var(--ink);
+}
+.artikel-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.artikel-hero-date,
+.artikel-hero-read {
+  font-size: 13px;
+  color: var(--muted);
+}
+.artikel-h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.artikel-ingress {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ── Artikel Body ── */
+.artikel-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 48px 80px;
+}
+.artikel-content h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin: 48px 0 16px;
+  line-height: 1.2;
+}
+.artikel-content h2:first-child {
+  margin-top: 0;
+}
+.artikel-content h3 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 32px 0 10px;
+}
+.artikel-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #3a3a3a;
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+.artikel-content ul,
+.artikel-content ol {
+  margin: 16px 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.artikel-content li {
+  font-size: 15px;
+  color: #3a3a3a;
+  line-height: 1.75;
+}
+.artikel-content li strong {
+  color: var(--ink);
+}
+.artikel-content strong {
+  font-weight: 600;
+}
+
+/* ── Artikel CTA ── */
+.artikel-cta {
+  background: var(--ink);
+  padding: 80px 48px;
+  text-align: center;
+}
+.artikel-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.artikel-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  color: var(--paper);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+.artikel-cta p {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(247,243,238,.6);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.artikel-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.artikel-cta-secondary {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(247,243,238,.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.artikel-cta-secondary:hover {
+  color: var(--paper);
+}
+
+/* Related grid – 2 columns when only 2 articles */
+.blogg-grid-related {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+}
+
+/* ── Blogg Responsive ── */
+@media (max-width: 900px) {
+  .blogg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .blogg-grid-related {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+  .artikel-hero {
+    padding: 100px 24px 60px;
+  }
+  .artikel-body {
+    padding: 48px 24px 64px;
+  }
+  .artikel-cta {
+    padding: 60px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .blogg-grid {
+    grid-template-columns: 1fr;
+  }
+  .blogg-card-img {
+    min-height: 140px;
+    padding: 28px;
+  }
+}

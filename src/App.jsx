@@ -13,6 +13,8 @@ import Fastighet from './pages/branches/Fastighet'
 import Redovisning from './pages/branches/Redovisning'
 import Ehandel from './pages/branches/Ehandel'
 import Juridik from './pages/branches/Juridik'
+import Blogg from './pages/Blogg'
+import BloggArtikel from './pages/BloggArtikel'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -38,6 +40,8 @@ export default function App() {
           <Route path="/redovisning" element={<Redovisning />} />
           <Route path="/ehandel" element={<Ehandel />} />
           <Route path="/juridik" element={<Juridik />} />
+          <Route path="/blogg" element={<Blogg />} />
+          <Route path="/blogg/:id" element={<BloggArtikel />} />
         </Routes>
       </main>
       <Footer />

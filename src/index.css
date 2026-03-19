@@ -647,7 +647,7 @@ input[type="range"]::-moz-range-thumb {
 /* Results */
 .case-results { background: var(--ink); padding: 100px 48px; text-align: center; }
 .case-results-inner { max-width: 1100px; margin: 0 auto; }
-.case-results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+.case-results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
 .case-result-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 48px 32px; backdrop-filter: blur(12px); transition: transform .3s, background .3s; }
 .case-result-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.09); }
 .case-result-num { font-family: var(--serif); font-size: 56px; font-weight: 900; background: linear-gradient(135deg, #a78bfa, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 8px; }
@@ -1380,4 +1380,52 @@ input[type="range"]::-moz-range-thumb {
   .branch-cta {
     padding: 60px 24px;
   }
+  .case-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === AWARD PROOF BANNER === */
+.award-proof-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: left;
+}
+.award-proof-banner .award-icon { font-size: 2rem; flex-shrink: 0; }
+.award-proof-banner p { margin: 0; color: #92400e; font-size: 0.95rem; line-height: 1.5; }
+.award-proof-banner strong { color: #78350f; }
+.award-proof-banner .award-link {
+  color: #7C3AED;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid #7C3AED;
+}
+
+/* === CASE AWARD BADGE === */
+.case-award-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fbbf24;
+}
+.case-award-badge span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #fcd34d;
+  margin-top: 0.25rem;
 }

@@ -200,6 +200,17 @@ export default function Home() {
         <div className="hiw-case-link fade-up" style={{ transitionDelay: '.25s' }}>
           <Link to="/case" className="hiw-case-btn">📸 Läs fallstudie: Wristbuddys — 96% tidsbesparing →</Link>
         </div>
+
+        {/* BRANCH BADGES */}
+        <div className="branch-badges fade-up" style={{ transitionDelay: '.35s' }}>
+          <p className="branch-badges-label">Vi hjälper bolag inom:</p>
+          <div className="branch-badges-row">
+            <Link to="/fastighet" className="branch-badge-link">🏢 Fastighet</Link>
+            <Link to="/redovisning" className="branch-badge-link">📊 Redovisning</Link>
+            <Link to="/ehandel" className="branch-badge-link">🛒 E-handel</Link>
+            <Link to="/juridik" className="branch-badge-link">⚖️ Juridik</Link>
+          </div>
+        </div>
       </section>
 
       <div className="rule" />

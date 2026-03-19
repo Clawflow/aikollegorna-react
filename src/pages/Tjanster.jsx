@@ -92,6 +92,20 @@ export default function Tjanster() {
         ))}
       </div>
 
+      {/* BRANCH LINKS */}
+      <div style={{ background: 'var(--white)', padding: '60px 48px', textAlign: 'center' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>Hitta er bransch</p>
+        <h3 className="fade-up" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(24px,3vw,36px)', fontWeight: 900, letterSpacing: -1, marginBottom: 28 }}>
+          Vi anpassar AI-medarbetaren efter <em style={{ fontStyle: 'italic', color: 'var(--blue)' }}>er bransch</em>
+        </h3>
+        <div className="branch-badges-row" style={{ justifyContent: 'center' }}>
+          <Link to="/fastighet" className="branch-badge-link">🏢 Fastighet</Link>
+          <Link to="/redovisning" className="branch-badge-link">📊 Redovisning</Link>
+          <Link to="/ehandel" className="branch-badge-link">🛒 E-handel</Link>
+          <Link to="/juridik" className="branch-badge-link">⚖️ Juridik</Link>
+        </div>
+      </div>
+
       <div style={{ background: 'var(--ink)', padding: '80px 48px', textAlign: 'center' }}>
         <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px,4vw,52px)', fontWeight: 900, color: 'var(--paper)', lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 16 }}>
           Redo att komma igång?

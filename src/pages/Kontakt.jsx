@@ -390,6 +390,28 @@ export default function Kontakt() {
         {/* ── Högerkolumn — Formulär ── */}
         <div className="fade-up" style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 20, padding: 40 }}>
 
+          {/* ── Boka ett samtal ── */}
+          <div className="kontakt-booking">
+            <div className="booking-card">
+              <span className="booking-icon">📅</span>
+              <h3>Föredrar du att prata direkt?</h3>
+              <p>Boka ett gratis 30-minuterssamtal med Anton.
+                 Vi visar ett live-demo och analyserar hur AI
+                 kan hjälpa just ert företag.</p>
+              <a
+                href="mailto:hej@aikollegorna.se?subject=Boka%20demo-samtal&body=Hej%20Anton!%0A%0AJag%20%C3%A4r%20intresserad%20av%20ett%2030-minuterssamtal%20f%C3%B6r%20att%20se%20hur%20AI%20Kollegorna%20kan%20hj%C3%A4lpa%20oss.%0A%0AMitt%20f%C3%B6retag%3A%20%0ABransch%3A%20%0AStorlek%3A%20anst%C3%A4llda%0A%0APassed%20tider%3A"
+                className="booking-btn"
+              >
+                Skicka mötesförfrågan →
+              </a>
+              <p className="booking-response">Vi svarar inom 24h och bekräftar tid</p>
+            </div>
+
+            <div className="booking-divider">
+              <span>eller fyll i formuläret nedan</span>
+            </div>
+          </div>
+
           {/* ── Success State ── */}
           {status === 'success' ? (
             <div style={{ textAlign: 'center', padding: '40px 0' }}>
@@ -479,6 +501,21 @@ export default function Kontakt() {
               </form>
             </>
           )}
+          {/* ── Kontaktinfo-rad ── */}
+          <div className="kontakt-info-row">
+            <div className="kontakt-info-item">
+              <span>📧</span>
+              <span>hej@aikollegorna.se</span>
+            </div>
+            <div className="kontakt-info-item">
+              <span>⏱️</span>
+              <span>Svar inom 24h</span>
+            </div>
+            <div className="kontakt-info-item">
+              <span>🔒</span>
+              <span>GDPR-säker kommunikation</span>
+            </div>
+          </div>
         </div>
       </div>
     </>

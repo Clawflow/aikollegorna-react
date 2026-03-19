@@ -51,6 +51,10 @@ export default function Home() {
               <a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer" className="btn-light-solid">Konfigurera din agent →</a>
               <a href="#how-it-works" className="btn-text-light">Se hur det fungerar →</a>
             </div>
+            <p className="hero-book-link">
+              Eller <a href="/kontakt" className="hero-inline-link">boka ett gratis 30-min samtal</a> —
+              vi visar ett live-demo.
+            </p>
           </div>
           <div>
             <div className="stat-block fade-up">

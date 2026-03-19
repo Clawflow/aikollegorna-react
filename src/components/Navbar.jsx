@@ -28,7 +28,7 @@ export default function Navbar() {
           <li><Link to="/priser">Priser</Link></li>
           <li><Link to="/kontakt">Kontakt</Link></li>
         </ul>
-        <Link to="/kontakt" className="nav-btn">Boka samtal →</Link>
+        <a href="https://clawflow.github.io/agent-configurator/" className="nav-btn" target="_blank" rel="noopener noreferrer">Konfigurera agent →</a>
         <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Meny">
           <span /><span /><span />
         </button>
@@ -39,6 +39,7 @@ export default function Navbar() {
         <Link to="/om-oss" onClick={() => setOpen(false)}>Om oss</Link>
         <Link to="/priser" onClick={() => setOpen(false)}>Priser</Link>
         <Link to="/kontakt" onClick={() => setOpen(false)}>Kontakt</Link>
+        <a href="https://clawflow.github.io/agent-configurator/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Konfigurera agent →</a>
       </div>
     </>
   )
